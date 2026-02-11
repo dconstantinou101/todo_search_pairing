@@ -48,29 +48,54 @@ def age_checker(date_of_birth)
 
 
 """
-Given a birth year for an age greater than 16,
+[1] Given a birth year for an age greater than 16,
 it returns access granted message
 
 """
 age_checker("1960-10-21")
-"Access granted!"
+=>"Access granted!"
 
 
 """
-Given a birth year for an age greater than 16,
+[2] Given a birth year for an age less than 16,
 it returns access denied message
 """
-age_checker("2020-10-25")
-'access is denied: your current age is x and you must be 16'
+age_checker("2010-07-10")
+=>'access is denied: your current age is 15 and you must be 16'
 
 """
-Given a birth year for age of 16,
-it returns access granted message
+[3] Throws an error if date of birth is
+not in the correct format'YYYY-MM-DD`
 
 """
-age_checker("1960-10-21")
-"Access granted!"
+age_checker(15)
+=>ValueError 'Date must be in string format YYYY-MM-DD'
 
+"""
+[4] Throws an error when date of birth is
+not a string
+
+"""
+age_checker('01-02-2010')
+=>TypeError 'Date must be a string format: YYYY-MM-DD'
+
+"""
+[5] Given that today is the users birthday returns
+access granted message
+
+"""
+birthdate = (todays_date - 16 years)
+age_checker(birth_date.isoformat())
+=> 'Access granted'
+"""
+[6] Given that tomorrow  the user will turn 16, it returns 
+access denied message
+
+"""
+birthdate = (todays_date - 16 years) + 1 day
+age_checker(birth_date.isoformat())
+=> 'Access is denied: your current age is 15 and you must be 16'
+"""
 ```
 
 _Encode each example as a test. You can add to the above list as you go._
@@ -84,15 +109,7 @@ Here's an example for you to start with:
 ```python
 # EXAMPLE
 
-from lib.extract_uppercase import *
 
-"""
-Given a lower and an uppercase word
-It returns a list with the uppercase word
-"""
-def test_extract_uppercase_with_upper_then_lower():
-    result = extract_uppercase("hello WORLD")
-    assert result == ["WORLD"]
 ```
 
 Ensure all test function names are unique, otherwise pytest will ignore them!# 
